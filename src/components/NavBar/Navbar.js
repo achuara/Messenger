@@ -46,8 +46,8 @@ useEffect(() => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
-  console.log("isMobile");
-  console.log(isMobile);
+  //console.log("isMobile");
+  //console.log(isMobile);
 
 
 return (
