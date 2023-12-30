@@ -36,7 +36,7 @@ const Messenger = () => {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8080");
+    socket.current = io("https://indianmessenger-server.onrender.com");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -117,7 +117,7 @@ const Messenger = () => {
   useEffect(() => {
     const fetchUsers = async () =>{
       if(query !== "")
-      {const res = await axios.get("http://localhost:5000/user/search/" + query);
+      {const res = await axios.get("https://indianmessenger-server.onrender.com/user/search/" + query);
       const d = res.data.filter((id) => id._id !== user.result._id);
       //console.log(d);
       setSearchedUsers(d);}

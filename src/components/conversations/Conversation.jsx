@@ -19,8 +19,8 @@ export default function Conversation({conversation, currentUser, idofcov}) {
     const getUser = async () => {
       try {
 
-        const res = await axios.get("http://localhost:5000/user/" + friendId);
-        const res2 = await axios.get("http://localhost:5000/user/online/" + friendId);
+        const res = await axios.get("https://indianmessenger-server.onrender.com/user/" + friendId);
+        const res2 = await axios.get("https://indianmessenger-server.onrender.com/user/online/" + friendId);
         setOnline(res2.data );
         //console.log("online " + res2.data );
         setUser(res.data);
