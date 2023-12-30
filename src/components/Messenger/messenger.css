@@ -1,0 +1,153 @@
+.messenger {
+  height: calc(85vh - 70px);
+  display: flex;
+  gap: 50px;
+}
+
+.input {
+  display: flex;
+  background-color: white;
+  
+  align-items: center;
+}
+
+.chatMenu {
+  flex: 2;
+}
+
+
+.chatMenuInput {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  margin-left: 15px;
+  background-color: transparent;
+}
+
+.chatMenuInput:focus{
+  outline: none;
+}
+
+.chatBox {
+  flex: 5.5;
+}
+
+.chatBoxWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /*position: relative;*/
+}
+
+.chatBoxTop {
+  height: 100%;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+.chatBoxTop1 {
+  height: calc(85vh - 350px);
+  overflow-y: scroll;
+  position: absolute;
+  width: 21.19%;
+  border: 3px solid gainsboro;
+  background-color: rgb(109, 112, 110); 
+  
+}
+
+.chatBoxTop2 {
+  overflow-y: scroll;
+  width: 100%;
+  height: calc(85vh - 80px);
+}
+
+.chatBoxBottom {
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatMessageInput {
+  width: 80%;
+  height: 50px;
+  padding: 10px;
+}
+
+.chatSubmitButton {
+  width: 70px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(224, 132, 56); 
+  color: white;
+}
+
+.chatOnline {
+  flex: 3;
+}
+
+.chatMenuWrapper,
+.chatBoxWrapper,
+.chatOnlineWrapper {
+  padding: 10px;
+  height: 100%;
+}
+
+.noConversationText {
+  /*position: absolute;*/
+  top: 10%;
+  font-size: 50px;
+  color: rgb(224, 220, 220);
+  cursor: default;
+}
+
+@media screen and (max-width: 100px) {
+  .chatMenu {
+    flex: 1;
+  }
+
+  .chatMenuInput {
+    display: none;
+  }
+
+  .chatBox{
+    flex: 10;
+  }
+
+  .chatOnline{
+    flex: 1px;
+  }
+}
+
+.Searchedusers {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.Searchedusers:hover {
+  background-color: rgb(245, 243, 243);
+}
+
+.SearchedusersImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.SearchedusersName {
+  font-weight: 500;
+}
+
+*{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
