@@ -63,6 +63,9 @@ const Messenger = () => {
     const getConversations = async () => {
       try {
         const res = await axios.get("/conversations/" + user.result._id);
+        console.log("res.data");
+        console.log(res.data);
+        console.log("res.data");
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -185,7 +188,7 @@ const Messenger = () => {
                         </div>
             }
             <div className="chatBoxTop2">
-              {(conversations || [])?.map((c) => (
+              {conversations.map((c) => (
                 <div  key={c._id} onClick={() => {setCurrentChat(c); setconversationColour(c._id);}}>
                   <Conversation conversation={c} currentUser={user.result} idofcov ={conversationColour}/>
                 </div>
