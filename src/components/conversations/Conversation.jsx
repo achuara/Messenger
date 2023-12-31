@@ -14,7 +14,7 @@ export default function Conversation({conversation, currentUser, idofcov}) {
   //console.log("check end co stn");
 
   useEffect(() => {
-    const friendId = conversation.members.find((m) => m !== currentUser._id);
+    const friendId = (conversation?.members || []).find((m) => m !== currentUser._id);
 
     const getUser = async () => {
       try {
