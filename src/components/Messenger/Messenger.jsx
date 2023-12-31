@@ -62,7 +62,7 @@ const Messenger = () => {
   useEffect(() => {
     const getConversations = async () => {
       try {
-        const res = await axios.get("/conversations/" + user.result._id);
+        const res = await axios.get("https://indianmessenger-server.onrender.com/conversations/" + user.result._id);
         console.log("res.data");
         console.log(res);
         console.log("res.data");
@@ -77,7 +77,7 @@ const Messenger = () => {
   useEffect(() => {
     const getMessages = async () => {
       try {
-        const res = await axios.get("/messages/" + currentChat?._id);
+        const res = await axios.get("https://indianmessenger-server.onrender.com/messages/" + currentChat?._id);
         setMessages(res.data);
       } catch (err) {
         console.log(err);
@@ -105,7 +105,7 @@ const Messenger = () => {
     });
 
     try {
-      const res = await axios.post("/messages", message);
+      const res = await axios.post("https://indianmessenger-server.onrender.com/messages", message);
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
@@ -143,7 +143,7 @@ const Messenger = () => {
         if(!Boolean(conversations.find(x => (x.members[0] === searchedUserForConv || x.members[1] === searchedUserForConv) )))
         {
           setReGetAllConversations(searchedUserForConv);
-          const res = await axios.post("/conversations",  p);
+          const res = await axios.post("https://indianmessenger-server.onrender.com/conversations",  p);
           setCurrentChat(res.data);
           setSearch(false);
           setReGetAllConversations(searchedUserForConv);
