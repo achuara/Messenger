@@ -185,7 +185,7 @@ const Messenger = () => {
                         </div>
             }
             <div className="chatBoxTop2">
-              {(conversations || []).map((c) => (
+              {(conversations || [])?.map((c) => (
                 <div  key={c._id} onClick={() => {setCurrentChat(c); setconversationColour(c._id);}}>
                   <Conversation conversation={c} currentUser={user.result} idofcov ={conversationColour}/>
                 </div>
