@@ -63,9 +63,6 @@ const Messenger = () => {
     const getConversations = async () => {
       try {
         const res = await axios.get("https://indianmessenger-server.onrender.com/conversations/" + user.result._id);
-        console.log("res.data");
-        console.log(res);
-        console.log("res.data");
         setConversations(res.data);
       } catch (err) {
         console.log(err);
