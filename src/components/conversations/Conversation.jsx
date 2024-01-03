@@ -40,7 +40,8 @@ export default function Conversation({conversation, currentUser, idofcov}) {
     idofcov === conversation._id ? (
       
       online === true?(
-        <div className="conversation">
+       <>
+          <div className="conversation">
           
           <img className="conversationImg"
             src="https://images.pexels.com/photos/3686769/pexels-photo-3686769.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -48,40 +49,52 @@ export default function Conversation({conversation, currentUser, idofcov}) {
           />
           <div className="chatOnlineBadge"></div>
           <span className="conversationName">{user?.name}</span>
-        </div>
+          </div>
+          {isMobile ? (<div className="conversationName23">{user?.name}</div>):null}
+        </>
 
       ):(
-        <div className="conversation">
+       <>
+          <div className="conversation">
           <img className="conversationImg"
             src="https://images.pexels.com/photos/3686769/pexels-photo-3686769.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
           />
           <span className="conversationName">{user?.name}</span>
-        </div>
+          </div>
+          {isMobile ? (<div className="conversationName23">{user?.name}</div>):null}
+        </>
 
       )
         
     ):(
 
-      online === true?(
-        <div className="conversation1">
+    <>
+          <div className="conversation1">
            <img className="conversationImg"
              src="https://images.pexels.com/photos/3686769/pexels-photo-3686769.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
              alt=""
            />
            <div className="chatOnlineBadge"></div>
            <span className="conversationName">{user?.name}</span>
-        </div>
+           </div>
+           {isMobile ? (<div className="conversationName23">{user?.name}</div>):null}
+        </> 
 
       ):(
+        <>
         <div className="conversation1">
            <img className="conversationImg"
              src="https://images.pexels.com/photos/3686769/pexels-photo-3686769.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
              alt=""
            />
            <span className="conversationName">{user?.name}</span>
+           
         </div>
-
+        {isMobile ? (<div className="conversationName23">{user?.name}</div>):null}
+        
+        </>
+  
       )
    
   )
