@@ -36,11 +36,11 @@ export default function Conversation({conversation, currentUser, idofcov}) {
   }, [currentUser]);
 
   
-  return (
+   return (
     idofcov === conversation._id ? (
       
       online === true?(
-       <>
+        <>
           <div className="conversation">
           
           <img className="conversationImg"
@@ -52,9 +52,10 @@ export default function Conversation({conversation, currentUser, idofcov}) {
           </div>
           {isMobile ? (<div className="conversationName23">{user?.name}</div>):null}
         </>
+        
 
       ):(
-       <>
+        <>
           <div className="conversation">
           <img className="conversationImg"
             src="https://images.pexels.com/photos/3686769/pexels-photo-3686769.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -69,7 +70,8 @@ export default function Conversation({conversation, currentUser, idofcov}) {
         
     ):(
 
-    <>
+      online === true?(
+        <>
           <div className="conversation1">
            <img className="conversationImg"
              src="https://images.pexels.com/photos/3686769/pexels-photo-3686769.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -94,7 +96,8 @@ export default function Conversation({conversation, currentUser, idofcov}) {
         {isMobile ? (<div className="conversationName23">{user?.name}</div>):null}
         
         </>
-  
+        
+
       )
    
   )
