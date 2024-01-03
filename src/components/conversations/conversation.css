@@ -33,6 +33,11 @@
   margin-left: 10px;
 }
 
+.conversationName23 {
+  background-color: rgb(245, 243, 243);
+  padding-left: 10px;
+}
+
 .chatOnlineBadge {
   width: 10px;
   height: 10px;
@@ -43,7 +48,7 @@
   
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 602px) {
   .conversationName {
     display: none;
   }
