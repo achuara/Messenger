@@ -4,6 +4,11 @@
   gap: 50px;
 }
 
+@media screen and (max-width: 602px) {
+  .messenger {
+    gap: 0px;
+  }
+}
 .input {
   display: flex;
   background-color: white;
