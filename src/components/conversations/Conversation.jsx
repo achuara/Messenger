@@ -3,8 +3,12 @@
 import { useEffect, useState } from "react";
 import "./conversation.css";
 import axios from "axios";
+import { useTheme, useMediaQuery} from '@material-ui/core';
 
 export default function Conversation({conversation, currentUser, idofcov}) {
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   const [user, setUser] = useState(null);
   // eslint-disable-next-line
