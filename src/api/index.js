@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({baseURL: 'https://indianmessenger-server.onrender.com'});
+const API = axios.create({baseURL: 'https://chat-server-production-1f77.up.railway.app'});
 
 API.interceptors.request.use( (req) => {
     if(localStorage.getItem('profile')){
