@@ -36,7 +36,7 @@ const Messenger = () => {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("https://indianmessenger-server.onrender.com");
+    socket.current = io("https://chat-server-production-1f77.up.railway.app");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -62,7 +62,7 @@ const Messenger = () => {
   useEffect(() => {
     const getConversations = async () => {
       try {
-        const res = await axios.get("https://indianmessenger-server.onrender.com/conversations/" + user.result._id);
+        const res = await axios.get("https://chat-server-production-1f77.up.railway.app/conversations/" + user.result._id);
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -74,7 +74,7 @@ const Messenger = () => {
   useEffect(() => {
     const getMessages = async () => {
       try {
-        const res = await axios.get("https://indianmessenger-server.onrender.com/messages/" + currentChat?._id);
+        const res = await axios.get("https://chat-server-production-1f77.up.railway.app/messages/" + currentChat?._id);
         setMessages(res.data);
       } catch (err) {
         console.log(err);
@@ -102,7 +102,7 @@ const Messenger = () => {
     });
 
     try {
-      const res = await axios.post("https://indianmessenger-server.onrender.com/messages", message);
+      const res = await axios.post("https://chat-server-production-1f77.up.railway.app/messages", message);
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
@@ -117,7 +117,7 @@ const Messenger = () => {
   useEffect(() => {
     const fetchUsers = async () =>{
       if(query !== "")
-      {const res = await axios.get("https://indianmessenger-server.onrender.com/user/search/" + query);
+      {const res = await axios.get("https://chat-server-production-1f77.up.railway.app/user/search/" + query);
       const d = res.data.filter((id) => id._id !== user.result._id);
       //console.log(d);
       setSearchedUsers(d);}
@@ -140,7 +140,7 @@ const Messenger = () => {
         if(!Boolean(conversations.find(x => (x.members[0] === searchedUserForConv || x.members[1] === searchedUserForConv) )))
         {
           setReGetAllConversations(searchedUserForConv);
-          const res = await axios.post("https://indianmessenger-server.onrender.com/conversations",  p);
+          const res = await axios.post("https://chat-server-production-1f77.up.railway.app/conversations",  p);
           setCurrentChat(res.data);
           setSearch(false);
           setReGetAllConversations(searchedUserForConv);
