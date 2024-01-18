@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import {Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core' ;
+import {Avatar, Button, Paper, Grid, Typography, Container, CircularProgress} from '@material-ui/core' ;
 import useStyles from './styles';
 import Input from './Input';
 import { signin, signup, googleauth } from '../../actions/auth';
@@ -23,6 +23,7 @@ const Auth = () => {
 
 const [showPassword, setShowPassword] = useState(false);
 const [isSignup, setIsSignup] = useState(false);
+const [isSignedup, setIsSignedup] = useState(false);
 const [formData, setFormData] = useState(initialState);
 const dispatch = useDispatch();
 const history = useNavigate();
@@ -36,12 +37,12 @@ const handleSubmit = (e)=>{
         e.preventDefault();
 
         if (isSignup) {
-        
+            setIsSignedup(true);
             dispatch(signup(formData, history));
             
         
         } else {
-        
+            setIsSignedup(true);
             dispatch(signin(formData, history));
         }
 };
@@ -51,6 +52,7 @@ const handleChange= (e)=> {
 };
 
 const switchMode = ()=> {
+    setIsSignedup(false);
     setIsSignup((prevIsSignup) => !prevIsSignup); 
     setShowPassword(false);
 };
@@ -100,6 +102,7 @@ return (
                     const formData = { email:decoded.email,
                                      name: decoded.name
                     };
+                    setIsSignedup(true);
                     dispatch(googleauth(formData, history));
                    
 
@@ -126,12 +129,11 @@ return (
         
             </GoogleOAuthProvider>
             </Button>
-            
-          
-
-
-            
-
+            {isSignedup?(
+                <Button fullWidth >
+                    <CircularProgress/>
+                </Button>) : null  
+             } 
                 <Grid container justify ="flex-end">
                     <Grid item>
                     <Button onClick={switchMode}>
